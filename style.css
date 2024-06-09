@@ -1,0 +1,136 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+section {
+  margin-bottom: 20px;
+}
+h2 {
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 5px;
+}
+pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.http-request {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.method {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.url {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  flex-grow: 1;
+}
+
+.styled-text {
+    background-color: #0074A2; /* Dark Cyan background */
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid black; /* Black border */
+    display: inline-block;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.json-example {
+  font-family: 'Courier New', Courier, monospace;
+  color: #1f1f1f;
+}
+
+.property {
+  color: blue;
+}
+
+.type {
+  color: #2da62b;
+}
+
+.highlight {
+  background-color: #d3d3d3;
+  display: inline-block;
+  margin-left: 20px;
+  font-style: italic;
+}
+
+.url-container {
+    border: 2px solid black; 
+    padding: 10px; /
+    font-family: Arial, sans-serif; 
+    font-size: 16px; 
+    width: fit-content; 
+    margin: 20px; 
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.error-message {
+    border: 2px solid black; 
+    padding: 10px; 
+    margin-bottom: 20px; 
+    background-color: #f9f9f9; 
+}
+
+.url-container {
+  border: 2px solid black; 
+  padding: 10px; 
+  margin-bottom: 20px; 
+  background-color: #f9f9f9; 
+  word-wrap: break-word; 
+}
+
+a {
+  text-decoration: none; 
+  color: blue; 
+}
+
+a:hover {
+  text-decoration: underline; 
+}
+
+
+

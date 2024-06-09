@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação da API do Pet Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Documentação da API Petshop AWS</h1>
+    </header>
+
+    <section id="intro">
+        <h2>  API e documentação Petshop</h2>
+        <p> Obtém os dados dos proprietários e os dados dos seus respectivos pets.</p>
+    </section>
+
+        <li>Lista dos Clientes do PetShop </li>
+        <div class="http-request">
+            <div class="method">GET</div>
+            <div class="url">http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/cliente</div>
+        </div>
+
+    <section id="respostas de sucesso">
+        <h2>Respostas de Sucesso</h2>
+
+        
+    <div  class="error-message">
+            <p><strong>Condição:</strong> Não existe Clientes cadastrados.</p>
+            <p><strong>Code:</strong> 200 OK</p>
+            <p><strong>Conteúdo:</strong>Um Array vazio – {Cliente:{}}</p>
+    </div>    
+
+          
+            <ul> <p> OU </p>     </ul> 
+
+        <div class="error-message">   
+
+            <p><strong>Condição:</strong>  Existe Clientes cadastrados.</p>
+            <p><strong>Code:</strong> 200 OK</p>
+            <p><strong>Conteúdo:</strong>Um Array de Clientes</p>
+            <p><strong>Conteúdo:</strong> </p>
+        
+            
+        </div>
+
+        <div class="styled-text">Shema</div>
+
+        <pre class="json-example">
+        {
+            <span class="property">id</span>: <span class="type">Number</span>
+            <span class="highlight">Identificador do Proprietário</span>
+            <span class="property">nome</span>: <span class="type">String</span>
+            <span class="highlight">Nome do Proprietário do Pet</span>
+            <span class="property">cpf</span>: <span class="type">String</span>
+            <span class="property">email</span>: <span class="type">String</span>
+
+            <span class="property">endereço</span>: <span class="type">String</span>
+            {
+                <span class="property">rua</span>: <span class="type">String</span>
+                <span class="property">bairro</span>: <span class="type">String</span>
+                <span class="property">endereços</span>: <span class="type">String</span>
+            }
+            <span class="property">telefone</span>: <span class="type">String</span>
+            <span class="property">pet</span>: <span class="type">String</span>
+            {
+                <span class="property">id</span>: <span class="type">Number</span>
+                <span class="highlight">Identificador do Pet</span>
+                <span class="property">nome</span>: <span class="type">String</span>
+                <span class="highlight">Nome do Pet</span>
+                <span class="property">espécie</span>: <span class="type">String</span>
+                <span class="property">idade</span>: <span class="type">Number</span>
+                <span class="property">cor</span>: <span class="type">String</span>
+            }
+        }
+        </pre>
+            
+        
+        
+        <pre>{
+            {
+            "Cliente": {
+                        "id": "101",
+                        "nome": "Mickeliny Sena",
+                        "cpf": "99999999999",
+                        "email": "mickelinysena@gmail.com",
+                        "endereco": {
+                                     "rua": "Rua Padre Carapuceiro",
+                                     "bairro": "Boa Viagem",
+                                     "cidade": "Recife"
+                                    }
+                        "telefone": "99999999",
+                        "pet": {
+                                "id": "150",
+                                "nome": "Ducky",
+                                "especie": "cachorro",
+                                "idade": "9",
+                                "cor": "Castanho"
+                                }
+                       }
+            }    
+}</pre>
+
+
+        <section id="respostas de Insucesso">
+            <h2>Respostas de Insucesso</h2>
+
+
+            <div  class="error-message">   
+
+                    <p><strong>Condição:</strong> Este erro ocorre quando o servidor não consegue processar a solicitação enviada pelo 
+                     cliente devido a uma sintaxe inválida ou parâmetros inválidos.</p>
+                    <p><strong>Code:</strong> 400 Bad Request</p>
+                    <p><strong>Conteúdo:</strong>“Olá, parece que houve um problema com a sua solicitação. A solicitação enviada pode 
+                     ter uma sintaxe inválida ou parâmetros inválidos. Por favor, revise os dados e tente novamente”</p>
+                   
+             </div>
+
+            <div class="url-container">
+                http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/clientes
+            </div>
+
+
+
+            <div class="error-message">
+
+                <p><strong>Condição:</strong> Este erro ocorre quando o servidor entendeu a solicitação, mas se recusa a 
+                autorizála</p>
+                <p><strong>Code:</strong> 403 Forbidden</p>
+                <p><strong>Conteúdo:</strong>“Olá, você não tem permissão para acessar este recurso. Se você acredita que isto
+                    é um erro, entre em contato com o suporte."</p>
+               
+
+
+            </div>
+
+            <div class="error-message">   
+
+                <p><strong>Condição:</strong>   Este erro ocorre quando um servidor atuando como gateway ou proxy recebe uma
+                resposta inválida de um servidor upstream.</p>
+                <p><strong>Code:</strong>  502 Bad Gateway</p>
+                <p><strong>Conteúdo:</strong>“Olá, o servidor está temporariamente indisponível. Por favor, tente novamente
+                mais tarde."</p>
+
+
+
+            </div>
+
+
+            <section id="lista dos clientes do petshop por id">
+                <h2>Lista dos Clientes do PetShop por ID</h2>
+
+                
+
+                
+                <div class="http-request">
+                <div class="method">GET</div>
+                <div class="url">http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/cliente/id</div>
+                </div>
+
+                <section id="respostas de sucesso">
+                    <h2>Respostas de Sucesso</h2>
+                    
+                <div  class="error-message">
+                        <p><strong>Condição:</strong> Não existe Clientes cadastrados.</p>
+                        <p><strong>Code:</strong> 200 OK</p>
+                        <p><strong>Conteúdo:</strong>Um Array vazio – {Cliente:{}}</p>
+                </div>
+
+
+                <ul> <p> OU </p>     </ul> 
+
+                <div class="error-message">   
+
+                    <p><strong>Condição:</strong>  Existe Clientes cadastrados.</p>
+                    <p><strong>Code:</strong> 200 OK</p>
+                    <p><strong>Conteúdo:</strong>Um Array de Clientes</p>
+                    <p><strong>Conteúdo:</strong> </p>
+                </div>
+
+                 <div class="styled-text">Shema</div>
+
+
+
+                <pre class="json-example">
+                    {
+                        <span class="property">id</span>: <span class="type">Number</span>
+                        <span class="highlight">Identificador do Proprietário</span>
+                        <span class="property">nome</span>: <span class="type">String</span>
+                        <span class="highlight">Nome do Proprietário do Pet</span>
+                        <span class="property">cpf</span>: <span class="type">String</span>
+                        <span class="property">email</span>: <span class="type">String</span>
+
+                        <span class="property">endereço</span>: <span class="type">String</span>
+                        {
+                            <span class="property">rua</span>: <span class="type">String</span>
+                            <span class="property">bairro</span>: <span class="type">String</span>
+                            <span class="property">endereços</span>: <span class="type">String</span>
+                        }
+                        <span class="property">telefone</span>: <span class="type">String</span>
+                        <span class="property">pet</span>: <span class="type">String</span>
+                        {
+                            <span class="property">id</span>: <span class="type">Number</span>
+                            <span class="highlight">Identificador do Pet</span>
+                            <span class="property">nome</span>: <span class="type">String</span>
+                            <span class="highlight">Nome do Pet</span>
+                            <span class="property">espécie</span>: <span class="type">String</span>
+                            <span class="property">idade</span>: <span class="type">Number</span>
+                            <span class="property">cor</span>: <span class="type">String</span>
+                        }
+                    }
+                    </pre>
+
+
+     <pre> {
+                            {
+                            "Cliente": {
+                                        "id": "101",
+                                        "nome": "Mickeliny Sena",
+                                        "cpf": "99999999999",
+                                        "email": "mickelinysena@gmail.com",
+                                        "endereco": {
+                                                     "rua": "Rua Padre Carapuceiro",
+                                                     "bairro": "Boa Viagem",
+                                                     "cidade": "Recife"
+                                                    }
+                                        "telefone": "99999999",
+                                        "pet": {
+                                                "id": "150",
+                                                "nome": "Ducky",
+                                                "especie": "cachorro",
+                                                "idade": "9",
+                                                "cor": "Castanho"
+                                                }
+                                        }
+                            }    
+} </pre>
+
+                <section id="respostas de Insucesso">
+                    <h2>Respostas de Insucesso</h2>
+
+
+                    <div  class="error-message">   
+
+                            <p><strong>Condição:</strong> Este erro ocorre quando o servidor não consegue processar a 
+                             solicitaçãoenviada pelo 
+                             cliente devido a uma sintaxe inválida ou parâmetros inválidos.</p>
+                            <p><strong>Code:</strong> 400 Bad Request</p>
+                            <p><strong>Conteúdo:</strong>“Olá, parece que houve um problema com a sua solicitação. A solicitação 
+                             enviada pode ter uma sintaxe inválida ou parâmetros inválidos. Por favor, revise os dados e tente 
+                            novamente”</p>
+
+                     </div>
+
+
+                    <div class="url-container">
+                        http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/cliente/ids
+                    </div>
+
+
+
+                    <div class="error-message">
+
+                        <p><strong>Condição:</strong> Este erro ocorre quando o servidor entendeu a solicitação, mas se recusa a 
+                        autorizála</p>
+                        <p><strong>Code:</strong> 403 Forbidden</p>
+                        <p><strong>Conteúdo:</strong>“Olá, você não tem permissão para acessar este recurso. Se você acredita que isto
+                            é um erro, entre em contato com o suporte."</p>
+
+
+
+                    </div>
+
+                    <div class="error-message">   
+
+                        <p><strong>Condição:</strong>   Este erro ocorre quando um servidor atuando como gateway ou proxy recebe uma
+                        resposta inválida de um servidor upstream.</p>
+                        <p><strong>Code:</strong>  502 Bad Gateway</p>
+                        <p><strong>Conteúdo:</strong>“Olá, o servidor está temporariamente indisponível. Por favor, tente novamente
+                        mais tarde."</p>
+
+
+
+                    </div>
+
+                    <section id="lista dos pets do petshop ">
+                        <h2>Lista dos Pets do PetShop</h2>
+
+                        <div class="http-request">
+                            <div class="method">GET</div>
+                            <div class="url">http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/pets</div>
+                        </div>
+
+                        <section id="respostas de sucesso">
+                            <h2>Respostas de Sucesso</h2>
+
+                        <div  class="error-message">
+                            <p><strong>Condição:</strong> Não existe Pet cadastrados.</p>
+                            <p><strong>Code:</strong> 200 OK</p>
+                            <p><strong>Conteúdo:</strong>Um Array vazio – {Pet:{}}</p>
+                        </div>    
+
+
+                            <ul> <p> OU </p>     </ul> 
+
+                        <div class="error-message">   
+
+                            <p><strong>Condição:</strong>  Existe Clientes cadastrados.</p>
+                            <p><strong>Code:</strong> 200 OK</p>
+                            <p><strong>Conteúdo:</strong>Um Array de Clientes</p>
+                            <p><strong>Conteúdo:</strong> </p>
+
+
+                        </div>
+
+                        <div class="styled-text">Shema</div>
+
+
+
+                            <pre class="json-example">
+                                {
+                                    <span class="property">id</span>: <span class="type">Number</span>
+                                    <span class="highlight">Identificador do Pet</span>
+                                    <span class="property">nome</span>: <span class="type">String</span>
+                                    <span class="highlight">Nome do  Pet</span>
+                                    <span class="property">especie</span>: <span class="type">String</span>
+                                    <span class="property">idade</span>: <span class="type">Number</span>
+                                    <span class="property">cor</span>: <span class="type">String</span>
+                                     <span class="property">dono</span>: <span class="type">String</span>
+                                           {
+                                        <span class="property">id</span>: <span class="type">Number</span>
+                                        <span class="highlight">Identificador do Proprietário</span>
+                                        <span class="property">nome</span>: <span class="type">String</span>
+                                        <span class="highlight">Nome do Proprietário</span>
+                                        <span class="property">cpf</span>: <span class="type">Number</span>
+                                        <span class="property">email</span>: <span class="type">String</span>
+                                        <span class="property">endereco</span>: <span class="type">String</span>
+                                            {
+                                        <span class="property">rua</span>: <span class="type">String</span>
+                                        <span class="property">bairro</span>: <span class="type">String</span>
+                                        <span class="property">enderecos</span>: <span class="type">String</span>
+                                            }
+
+                                        <span class="property">telefone</span>: <span class="type">String</span>
+                                        }
+                                }
+                            </pre>
+
+                            <pre> {
+                            "Pet": {
+                                    "id": "150",
+                                     "nome": "Ducky",
+                                     "especie": "cachorro",
+                                     "idade": 9,
+                                     "cor": "Castanho"
+                                     "dono": {
+                                              "id": "101",
+                                              "nome": "Mickeliny Sena",
+                                              "cpf": 99999999999,
+                                              "email": "mickelinysena@gmail.com",
+                                              "endereco": {
+                                                           "rua": "Rua Padre Carapuceiro",
+                                                            "bairro": "Boa Viagem",
+                                                            "cidade": "Recife"
+                                                          }
+                                           "telefone": 99999999,
+                                            }
+                            }
+} </pre>
+
+                            <section id="respostas de insucesso">
+                                <h2>Respostas de Insucesso</h2>
+
+
+                                <div  class="error-message">   
+
+                                        <p><strong>Condição:</strong> Este erro ocorre quando o servidor não consegue processar a 
+                                         solicitaçãoenviada pelo 
+                                         cliente devido a uma sintaxe inválida ou parâmetros inválidos.</p>
+                                        <p><strong>Code:</strong> 400 Bad Request</p>
+                                        <p><strong>Conteúdo:</strong>“Olá, parece que houve um problema com a sua solicitação. A 
+                                        solicitação  enviada pode ter uma sintaxe inválida ou parâmetros inválidos. Por favor, revise 
+                                        os dados e tente novamente”</p>
+
+                                 </div>
+
+
+                                <div class="url-container">
+                                    http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/pet
+                                </div>
+
+
+
+                                <div class="error-message">
+
+                                    <p><strong>Condição:</strong> Este erro ocorre quando o servidor entendeu a solicitação, mas ser 
+                                    recusa a 
+                                    autorizála</p>
+                                    <p><strong>Code:</strong> 403 Forbidden</p>
+                                    <p><strong>Conteúdo:</strong>“Olá, você não tem permissão para acessar este recurso. Se você 
+                                    acredita que isto é um erro, entre em contato com o suporte."</p>
+
+
+
+                                </div>
+
+
+                                <div class="error-message">   
+
+                                    <p><strong>Condição:</strong>   Este erro ocorre quando um servidor atuando como gateway ou proxy 
+                                    recebe uma
+                                    resposta inválida de um servidor upstream.</p>
+                                    <p><strong>Code:</strong>  502 Bad Gateway</p>
+                                    <p><strong>Conteúdo:</strong>“Olá, o servidor está temporariamente indisponível. Por favor, tente 
+                                    novamente mais tarde."</p>
+
+
+
+                                </div>
+
+                                <section id="lista dos pets do petShop por id">
+                                    <h2>Lista dos Pets do PetShop por ID</h2>
+
+
+                                    <div class="http-request">
+                                        <div class="method">GET</div>
+                                        <div class="url">http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/pets/id</div>
+                                    </div>
+
+                                    <section id="respostas de sucesso">
+                                        <h2>Respostas de Sucesso</h2>
+
+
+                                        <div  class="error-message">
+                                            <p><strong>Condição:</strong> Não existe Pets cadastrados.</p>
+                                            <p><strong>Code:</strong> 200 OK</p>
+                                            <p><strong>Conteúdo:</strong>Um Array vazio – {Pet:{}}</p>
+                                        </div>
+
+
+                                        <ul> <p> OU </p>     </ul> 
+
+                                        <div class="error-message">   
+
+                                        <p><strong>Condição:</strong>  Existe Clientes cadastrados.</p>
+                                        <p><strong>Code:</strong> 200 OK</p>
+                                        <p><strong>Conteúdo:</strong>Um Array de Pet</p>
+                                        <p><strong>Conteúdo:</strong> </p>
+                                        </div>
+
+                                        <div class="styled-text">Shema</div>
+
+
+                                        <pre class="json-example">
+                                            {
+                                                <span class="property">id</span>: <span class="type">Number</span>
+                                                <span class="highlight">Identificador do Pet</span>
+                                                <span class="property">nome</span>: <span class="type">String</span>
+                                                <span class="highlight">Nome do  Pet</span>
+                                                <span class="property">especie</span>: <span class="type">String</span>
+                                                <span class="property">idade</span>: <span class="type">Number</span>
+                                                <span class="property">cor</span>: <span class="type">String</span>
+                                                 <span class="property">dono</span>: <span class="type">String</span>
+                                                       {
+                                                    <span class="property">id</span>: <span class="type">Number</span>
+                                                    <span class="highlight">Identificador do Proprietário do Pet</span>
+                                                    <span class="property">nome</span>: <span class="type">String</span>
+                                                    <span class="highlight">Nome do Proprietário</span>
+                                                    <span class="property">cpf</span>: <span class="type">Number</span>
+                                                    <span class="property">email</span>: <span class="type">String</span>
+                                                    <span class="property">endereco</span>: <span class="type">String</span>
+                                                        {
+                                                    <span class="property">rua</span>: <span class="type">String</span>
+                                                    <span class="property">bairro</span>: <span class="type">String</span>
+                                                    <span class="property">enderecos</span>: <span class="type">String</span>
+                                                        }
+
+                                                    <span class="property">telefone</span>: <span class="type">String</span>
+                                                    }
+                                            }
+                                        </pre>
+
+                                        <pre> {
+                                                                    "Pet": {
+                                                                            "id": "150",
+                                                                             "nome": "Ducky",
+                                                                             "especie": "cachorro",
+                                                                             "idade": 9,
+                                                                             "cor": "Castanho"
+                                                                             "dono": {
+                                                                                      "id": "101",
+                                                                                      "nome": "Mickeliny Sena",
+                                                                                      "cpf": 99999999999,
+                                                                                      "email": "mickelinysena@gmail.com",
+                                                                                      "endereco": {
+                                                                                                   "rua": "Rua Padre Carapuceiro",
+                                                                                                    "bairro": "Boa Viagem",
+                                                                                                    "cidade": "Recife"
+                                                                                                  }
+                                                                                   "telefone": 99999999,
+                                                                                    }
+                                                                    }
+} </pre>
+
+
+
+
+
+                                        <section id="respostas de insucesso">
+                                            <h2>Respostas de Insucesso</h2>
+
+
+                                    <div  class="error-message">   
+
+                                         <p><strong>Condição:</strong> Este erro ocorre quando o servidor não consegue processar a 
+                                            solicitaçãoenviada pelo cliente devido a uma sintaxe inválida ou parâmetros inválidos.</p>
+                                         <p><strong>Code:</strong> 400 Bad Request</p>
+                                        <p><strong>Conteúdo:</strong>“Olá, parece que houve um problema com a sua solicitação. A 
+                                        solicitação  enviada pode ter uma sintaxe inválida ou parâmetros inválidos. Por favor, revise 
+                                        os dados e tente novamente”</p>
+
+                                             </div>
+
+
+                                            <div class="url-container">
+                                                http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/pets/ids
+                                            </div>
+
+
+
+                                <div class="error-message">
+
+                                    <p><strong>Condição:</strong> Este erro ocorre quando o servidor entendeu a solicitação, mas ser 
+                                                recusa a autorizála</p>
+                                    <p><strong>Code:</strong> 403 Forbidden</p>
+                                     <p><strong>Conteúdo:</strong>“Olá, você não tem permissão para acessar este recurso. Se você 
+                                    acredita que isto é um erro, entre em contato com o suporte."</p>
+
+
+
+                                     </div>
+
+
+                                 <div class="error-message">   
+
+                                 <p><strong>Condição:</strong>   Este erro ocorre quando um servidor atuando como gateway ou proxy 
+                                                recebe uma resposta inválida de um servidor upstream.</p>
+                                <p><strong>Code:</strong>  502 Bad Gateway</p>
+                                <p><strong>Conteúdo:</strong>“Olá, o servidor está temporariamente indisponível. Por favor, tente 
+                                novamente mais tarde."</p>
+
+                                 </div>
+
+
+                                            <pre> {
+                                                                        {
+                                                                        "Cliente": {
+                                                                                    "id": "101",
+                                                                                    "nome": "Mickeliny Sena",
+                                                                                    "cpf": "99999999999",
+                                                                                    "email": "mickelinysena@gmail.com",
+                                                                                    "endereco": {
+                                                                                                 "rua": "Rua Padre Carapuceiro",
+                                                                                                 "bairro": "Boa Viagem",
+                                                                                                 "cidade": "Recife"
+                                                                                                }
+                                                                                    "telefone": "99999999",
+                                                                                    "pet": {
+                                                                                            "id": "150",
+                                                                                            "nome": "Ducky",
+                                                                                            "especie": "cachorro",
+                                                                                            "idade": "9",
+                                                                                            "cor": "Castanho"
+                                                                                            }
+                                                                                    }
+                                                                        }    
+} </pre>
+
+
+                                            <pre> {
+                                            "Pet": {
+                                                    "id": "150",
+                                                     "nome": "Ducky",
+                                                     "especie": "cachorro",
+                                                     "idade": 9,
+                                                     "cor": "Castanho"
+                                                     "dono": {
+                                                              "id": "101",
+                                                              "nome": "Mickeliny Sena",
+                                                              "cpf": 99999999999,
+                                                              "email": "mickelinysena@gmail.com",
+                                                              "endereco": {
+                                                                           "rua": "Rua Padre Carapuceiro",
+                                                                            "bairro": "Boa Viagem",
+                                                                            "cidade": "Recife"
+                                                                          }
+                                                           "telefone": 99999999,
+                                                            }
+                                            }
+ } </pre>
+
+
+
+                 <div class="http-request">
+                                                
+                 <div class="url"> https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/cliente</div>
+                                            </div>
+
+
+                <div class="url-container">
+                <a href="https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/client" target="_blank">
+               Exemplo: https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/client</a>
+                                            </div>
+
+
+                    <div class="http-request">
+
+                <div class="url"> https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/cliente/id</div>
+                                            </div>
+
+
+                    <div class="url-container">
+                 <a href="https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/client" target="_blank">
+                    Exemplo: https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/client</a>
+                                            </div>
+
+
+                                            <div class="http-request">
+
+            <div class="url"> https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/pet</div>
+                                                                        </div>
+
+
+                     <div class="url-container">
+        <a href="https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/client" target="_blank">
+         Exemplo: https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/client</a>
+                                                                        </div>
+
+
+
+                                            <div class="http-request">
+
+                                                <div class="url"> https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/pet/id</div>
+                                                                                                            </div>
+
+
+                                                         <div class="url-container">
+                                            <a href="https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/client" target="_blank">
+ Exemplo: https://8ad68b4b-7bd5-431b-81e7-332fcad10713-00-1g371totnvmut.kirk.replit.dev:3000/client</a>
+
+                                                             
+
+                                                             
+
+                                            
+                                                 </div>
+                                                         <div class="url-container">
+                                            <a href="http://ec2-18-191-153-106.us-east-2.compute.amazonaws.com:3000/pet" target="_blank">
+ Exemplo: http://ec2-18-191-153-106.us-east-2.compute.amazonaws.com:3000/pet</a>
+                                                        
+                                                 </div>
+
+                                            <div class="url-container">
+                             <a href="http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/cliente/id" target="_blank">
+ Exemplo: http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/cliente/id</a>
+                                                        
+                                                 </div>
+                                            <div class="url-container">
+                                            <a href="http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/cliente/ids" target="_blank">
+ Exemplo: http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/cliente/ids</a>
+                                                        
+                                                 </div>
+                                            <div class="url-container">
+                                            <a href="http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/pets/ids" target="_blank">
+ Exemplo: http://ec2-3-21-231-196.us-east-2.compute.amazonaws.com:3000/pets/ids</a>
+                                                        
+                                                 </div>
+
+                                            
+
+                                            
+
+                                            
+                                                
+            
+
+               
+            
+       
+
+ 
+
+    <footer>
+        <p>&copy; 2024 PetShop. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
