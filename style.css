@@ -8,19 +8,23 @@ body {
   margin: 0;
   padding: 20px;
 }
+
 header {
   background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
   text-align: center;
 }
+
 section {
   margin-bottom: 20px;
 }
+
 h2 {
   border-bottom: 2px solid #4CAF50;
   padding-bottom: 5px;
 }
+
 pre {
   background-color: #f4f4f4;
   padding: 10px;
@@ -34,7 +38,7 @@ pre {
 }
 
 .method {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50; 
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -53,20 +57,15 @@ pre {
 }
 
 .styled-text {
-    background-color: #0074A2; /* Dark Cyan background */
+    background-color: #0074A2; 
     color: black;
     padding: 10px 20px;
     border-radius: 5px;
     font-family: Arial, sans-serif;
     font-weight: bold;
     text-align: center;
-    border: 2px solid black; /* Black border */
+    border: 2px solid black; 
     display: inline-block;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
 }
 
 .json-example {
@@ -90,29 +89,19 @@ body {
 }
 
 .url-container {
-    border: 2px solid black; 
-    padding: 10px; /
-    font-family: Arial, sans-serif; 
-    font-size: 16px; 
-    width: fit-content; 
-    margin: 20px; 
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+  border: 2px solid black; 
+  padding: 10px; 
+  font-family: Arial, sans-serif; 
+  font-size: 16px; 
+  width: fit-content; 
+  margin: 20px; 
 }
 
 .error-message {
-    border: 2px solid black; 
-    padding: 10px; 
-    margin-bottom: 20px; 
-    background-color: #f9f9f9; 
+  border: 2px solid black; 
+  padding: 10px; 
+  margin-bottom: 20px; 
+  background-color: #f9f9f9; 
 }
 
 .url-container {
@@ -133,4 +122,109 @@ a:hover {
 }
 
 
+@media (max-width: 1200px) {
+  .http-request {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
+  .method {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  header {
+    padding: 5px 10px;
+  }
+
+  .http-request {
+    margin: 10px;
+  }
+
+  .method, .url {
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .styled-text {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  .url-container, .error-message {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .method, .url {
+    font-size: 12px;
+  }
+
+  .styled-text {
+    font-size: 12px;
+  }
+
+  .url-container, .error-message {
+    font-size: 12px;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap; 
+  word-wrap: break-word; 
+}
+
+.property {
+  color: blue;
+}
+
+.type {
+  color: #2da62b;
+}
+
+.highlight {
+  background-color: #d3d3d3;
+  display: inline-block;
+  margin-left: 20px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  pre {
+      padding: 5px;
+      font-size: 14px;
+  }
+
+  .highlight {
+      margin-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  pre {
+      padding: 3px;
+      font-size: 12px;
+  }
+
+  .highlight {
+      margin-left: 5px;
+  }
+}
